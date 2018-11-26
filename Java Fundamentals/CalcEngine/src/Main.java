@@ -17,6 +17,7 @@ public class Main {
         CalculateHelper calcHelper = new CalculateHelper();
         for(String statement:statements) {
             calcHelper.process(statement);
+            System.out.println(calcHelper);
         }
     }
 
