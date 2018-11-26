@@ -10,6 +10,18 @@ public class Main {
         for (MathEquation equation: equations) {
             System.out.println(equation.execute());
         }
+
+        System.out.println("Using inheritance >> ");
+        CalculateBase[] calculators = {
+                new Divider(100.0d, 50.0d),
+                new Multiplier(11.0d, 3.0d),
+                new Adder(25.0d, 92.0d),
+                new Subtractor(225.0d, 17.0d),
+        };
+        for (CalculateBase calculator: calculators) {
+            calculator.calculate();
+            System.out.println(calculator.getResult());
+        }
     }
 
     public static MathEquation create(double leftVal, double rightVal, char opCode) {

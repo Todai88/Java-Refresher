@@ -34,8 +34,8 @@ public class MathEquation {
 
     private double leftVal;
     private double rightVal;
-    private char opCode;
     private double result;
+    private char opCode;
 
     public double execute() {
         switch(this.opCode) {
