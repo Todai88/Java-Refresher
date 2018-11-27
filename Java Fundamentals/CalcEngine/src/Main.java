@@ -10,14 +10,23 @@ public class Main {
         String[] statements = {
                 "divide 100.0 50.0",
                 "add 25.0 92.0",
+                "addX 0.0 0.0",
+                "add xx 25.0",
                 "subtract 225.0 17.0",
                 "multiply 11.0 3.0"
         };
 
         CalculateHelper calcHelper = new CalculateHelper();
         for(String statement:statements) {
-            calcHelper.process(statement);
-            System.out.println(calcHelper);
+            try {
+                calcHelper.process(statement);
+                System.out.println(calcHelper);
+            } catch (InvalidStatementException e) {
+                System.out.println(e.getMessage());
+                if (e.getCause() != null) {
+                    System.out.println("   Original exception: " + e.getCause().getMessage());
+                }
+            }
         }
     }
 
