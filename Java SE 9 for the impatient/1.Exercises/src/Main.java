@@ -6,5 +6,8 @@ public class Main {
         Two exerciseTwo = new Two();
         exerciseTwo.calculateAngle(370);
         exerciseTwo.calculateAngleUsingMath(370);
+        Three exerciseThree = new Three();
+        exerciseThree.getMaxOfThree();
+        exerciseThree.getMaxOfThreeUsingMath();
     }
 }
