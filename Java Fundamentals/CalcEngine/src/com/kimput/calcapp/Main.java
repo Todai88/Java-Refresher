@@ -1,19 +1,28 @@
+package com.kimput.calcapp;
+
+import com.kimput.calcengine.Adder;
+import com.kimput.calcengine.DynamicHelper;
+import com.kimput.calcengine.MathProcessing;
+import com.kimput.calcengine.Subtractor;
+import com.kimput.calcengine.CalculateBase;
+import com.kimput.calcengine.CalculateHelper;
+import com.kimput.calcengine.Divider;
+import com.kimput.calcengine.MathEquation;
+import com.kimput.calcengine.Multiplier;
+import com.kimput.invalidstatementexception.InvalidStatementException;
+
 public class Main {
 
     public static void main(String[] args){
-        useMathEquation();
+        /*useMathEquation();
         useCalculatorBase();
-        useCalculatorHelper();
+        useCalculatorHelper();*/
+        useDynamicCalculatorHelper();
     }
 
     private static void useCalculatorHelper() {
         String[] statements = {
-                "divide 100.0 50.0",
                 "add 25.0 92.0",
-                "addX 0.0 0.0",
-                "add xx 25.0",
-                "subtract 225.0 17.0",
-                "multiply 11.0 3.0"
         };
 
         CalculateHelper calcHelper = new CalculateHelper();
@@ -27,6 +36,19 @@ public class Main {
                     System.out.println("   Original exception: " + e.getCause().getMessage());
                 }
             }
+        }
+    }
+
+    private static void useDynamicCalculatorHelper() {
+        String[] statements = {
+                "add 25.0 92.0",
+        };
+
+        /* CalculateHelper calcHelper = new CalculateHelper();*/
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[] { new Adder() });
+        for(String statement:statements) {
+            String output = helper.process(statement);
+            System.out.println(output);
         }
     }
 

@@ -1,7 +1,9 @@
-import java.text.NumberFormat;
+package com.kimput.calcengine;
+
+import com.kimput.invalidstatementexception.InvalidStatementException;
 
 public class CalculateHelper {
-    MathCommand command;
+    private MathCommand command;
     double leftValue;
     double rightValue;
     double result;

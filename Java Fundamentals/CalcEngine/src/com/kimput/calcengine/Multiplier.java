@@ -1,3 +1,5 @@
+package com.kimput.calcengine;
+
 public class Multiplier extends CalculateBase {
     public Multiplier() {    }
 

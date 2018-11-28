@@ -1,3 +1,5 @@
+package com.kimput.calcengine;
+
 public abstract class CalculateBase {
 
     public double getLeftVal() {
