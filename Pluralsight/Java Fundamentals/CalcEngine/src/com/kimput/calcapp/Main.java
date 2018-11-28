@@ -3,6 +3,7 @@ package com.kimput.calcapp;
 import com.kimput.calcengine.Adder;
 import com.kimput.calcengine.DynamicHelper;
 import com.kimput.calcengine.MathProcessing;
+import com.kimput.calcengine.PowerOf;
 import com.kimput.calcengine.Subtractor;
 import com.kimput.calcengine.CalculateBase;
 import com.kimput.calcengine.CalculateHelper;
@@ -22,7 +23,7 @@ public class Main {
 
     private static void useCalculatorHelper() {
         String[] statements = {
-                "add 25.0 92.0",
+                "add 25.0 92.0"
         };
 
         CalculateHelper calcHelper = new CalculateHelper();
@@ -42,10 +43,15 @@ public class Main {
     private static void useDynamicCalculatorHelper() {
         String[] statements = {
                 "add 25.0 92.0",
+                "power 5.0 2.0"
         };
 
         /* CalculateHelper calcHelper = new CalculateHelper();*/
-        DynamicHelper helper = new DynamicHelper(new MathProcessing[] { new Adder() });
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[] {
+                new Adder(),
+                new PowerOf()
+        });
+
         for(String statement:statements) {
             String output = helper.process(statement);
             System.out.println(output);
