@@ -1,15 +1,15 @@
 package com.kimput.javafundamentals.generics._1_what_and_why_of_generics;
 
-public class CircularBuffer {
-    private Object[] buffer;
+class CircularBuffer<T> {
+    private T[] buffer;
     private int readCursor = 0;
     private int writeCursor = 0;
 
-    public CircularBuffer(int size) {
-        buffer = new Object[size];
+    CircularBuffer(int size) {
+        buffer =  (T[]) new Object[size];
     }
 
-    public boolean offer(Object value) {
+    boolean offer(T value) {
         if (buffer[writeCursor] != null) {
             return false;
         }
@@ -18,13 +18,16 @@ public class CircularBuffer {
         return true;
     }
 
-    public Object poll(Object value) {
-       if (buffer[readCursor] != null) {
-
+    T poll() {
+        final T value = buffer[readCursor];
+        if (value != null) {
+            buffer[readCursor] = null;
+            readCursor = next(readCursor);
        }
+        return value;
     }
 
-    public int next(int index) {
+    private int next(int index) {
         return (index + 1) % buffer.length;
     }
 }

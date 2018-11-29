@@ -30,9 +30,9 @@ public class CircularBufferTests {
     @Test
     public void shouldRecycleBuffer() {
         assertTrue(buffer.offer(1));
-        assertTrue(buffer.offer(1));
+        assertTrue(buffer.offer(2));
         assertEquals(1, buffer.poll());
-        assertTrue(buffer.offer(1));
+        assertTrue(buffer.offer(3));
         assertEquals(2, buffer.poll());
         assertEquals(3, buffer.poll());
     }
