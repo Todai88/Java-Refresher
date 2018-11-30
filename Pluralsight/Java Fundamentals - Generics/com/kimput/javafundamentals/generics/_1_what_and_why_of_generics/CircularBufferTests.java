@@ -1,8 +1,12 @@
 package com.kimput.javafundamentals.generics._1_what_and_why_of_generics;
 
 
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.testng.Assert.assertTrue;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class CircularBufferTests {
 
