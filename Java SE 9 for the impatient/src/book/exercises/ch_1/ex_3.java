@@ -1,9 +1,11 @@
+package src.book.exercises.ch_1;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Three {
+public class ex_3 {
 
-    public Three() {
+    public ex_3() {
         Scanner in = new Scanner(System.in);
         this.first = in.nextInt();
         this.second = in.nextInt();
