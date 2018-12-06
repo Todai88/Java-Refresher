@@ -13,3 +13,32 @@ by using it as a delegate: `Collections.sort(madMen, new FooComparator<>(new Bar
 
 That type of a pattern allows us to wrap `BarComparator` in `FooComparatator` to perform actions on the inner (`BarComparator`) results.
 
+## Wild Cards:
+
+### Upperbound wildcards (`? extends`):
+
+An upperbound wildcard is a reference to when you allow a particular class, or that class's subtypes to be a parameter:
+
+```public void saveAll(final List<? extends Person> persons)```.
+This pattern makes it easier to write generic code that still is type-safe in terms of what parameters are expected to be passed in.
+(only class or subclass of class).
+
+Normally this pattern is used when inserting data. 
+
+* Declare an upper bound for the type parameter
+* To get data out of the parameter
+* Covariance
+
+
+### Lowerbound wildcards (`? super`):
+
+When only a class or any class that the class is inhereting from is the parameter. 
+In certain cases, it might be relevant to restrict a parameter to only allow a particular class or it's parent classes to be passed in as paramters such as:
+```public void loadAll(final List<? super Person> people)```.
+In which case only a `Person` object or any parent of Person can be passed in.
+
+Normally this pattern is used when extracting data.
+
+* Declare a lower bound for the type parameter
+* To put data into the parameter
+* Contravariance
