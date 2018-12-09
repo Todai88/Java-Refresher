@@ -6,6 +6,7 @@ import src.book.exercises.ch_3.Ch3_6;
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// Test
 public class Ch3_6_Test {
     @Test
     public void testSquareSequence(){
