@@ -42,3 +42,30 @@ Normally this pattern is used when extracting data.
 * Declare a lower bound for the type parameter
 * To put data into the parameter
 * Contravariance
+
+
+----
+
+## Reflection
+
+### Reifiable Types
+
+* Primitives
+    - int, long
+* Non Parameterized Class or Interface
+    - String, ActionListener
+* All type arguments are unbounded Wildcards
+    - List<?>, Map<?, ?>
+* Arrays of reifiable components
+    - int[][], List<?>[]
+    
+### Non-Refiable Types
+These types cannot be reflected, as the JVM can't determine their type at runtime.
+
+* Type Variables
+    - T
+* Parameterized Type with Parameters
+    - ArrayList<String>, Map<integer, String>
+* Parameterized Type with Bounds
+    - List<? extends Number, Consumer<? super String>
+
