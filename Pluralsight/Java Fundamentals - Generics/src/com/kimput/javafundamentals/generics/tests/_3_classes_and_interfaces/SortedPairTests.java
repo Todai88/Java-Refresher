@@ -1,9 +1,9 @@
 package com.kimput.javafundamentals.generics.tests._3_classes_and_interfaces;
 
 import com.kimput.javafundamentals.generics._3_classes_and_interfaces.after.SortedPair;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SortedPairTests {
 

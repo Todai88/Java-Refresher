@@ -1,9 +1,13 @@
 package com.kimput.javafundamentals.generics.tests._5_wildcards.bounded;
 
-import com.kimput.javafundamentals.generics._5_wildcards.bounded.*;
+import com.kimput.javafundamentals.generics._5_wildcards.bounded.Employee;
+import com.kimput.javafundamentals.generics._5_wildcards.bounded.Partner;
+import com.kimput.javafundamentals.generics._5_wildcards.bounded.Person;
+import com.kimput.javafundamentals.generics._5_wildcards.bounded.PersonLoader;
+import com.kimput.javafundamentals.generics._5_wildcards.bounded.PersonSaver;
+import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import java.io.File;
 import java.util.ArrayList;

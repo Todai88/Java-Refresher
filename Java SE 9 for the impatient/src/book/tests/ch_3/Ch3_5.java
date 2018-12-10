@@ -1,10 +1,10 @@
 package src.book.tests.ch_3;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import src.book.exercises.ch_3.IntSequence_2;
 
-import static org.junit.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Ch3_5 {
     @Test

@@ -1,12 +1,12 @@
 package src.book.tests.ch_3;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import src.book.exercises.ch_3.Employee;
 import src.book.exercises.ch_3.Measurable;
 
 import java.util.Arrays;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Ch3_1_Test {
     @Test
