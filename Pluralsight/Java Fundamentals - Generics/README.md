@@ -46,7 +46,7 @@ Normally this pattern is used when extracting data.
 
 ----
 
-## Reflection
+## 7. Reflection
 
 ### Reifiable Types
 
@@ -69,3 +69,15 @@ These types cannot be reflected, as the JVM can't determine their type at runtim
 * Parameterized Type with Bounds
     - List<? extends Number, Consumer<? super String>
 
+----
+
+## 8. Advanced Topics
+
+### The Function Interface
+
+Wildcards' interaction with Lambda expressions:
+```
+Function<T, R> --> R apply(T arg)
+Function<Foo, Bar>
+Funciton<? super Foo, ? extends Bar> // super = data going in, extends = data going out.
+```
