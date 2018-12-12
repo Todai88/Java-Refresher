@@ -1,4 +1,4 @@
-package com.kimput.concurrency._1_understanding_concurrency;
+package com.kimput.concurrency._1_runnable_pattern;
 
 public class FirstRunnable {
     public static void main(String[] args) {
