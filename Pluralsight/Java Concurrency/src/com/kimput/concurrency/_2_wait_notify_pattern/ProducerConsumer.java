@@ -3,17 +3,38 @@ package com.kimput.concurrency._2_wait_notify_pattern;
 public class ProducerConsumer {
     private static int[] buffer;
     private static int count;
+    private static Object lock = new Object();
+
 
     static class Producer {
         void produce() {
-            while (isFull(buffer)) {}
-            buffer[count++] = 1;
+            synchronized (lock) {
+                if (isFull(buffer)) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                buffer[count++] = 1;
+                lock.notify();
+            }
         }
     }
+
     static class Consumer {
         void consume() {
-            while (isEmpty(buffer)) {}
-            buffer[--count] = 0;
+            synchronized (lock) {
+                if (isEmpty(buffer)) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                buffer[--count] = 0;
+                lock.notify();
+            }
         }
     }
 
