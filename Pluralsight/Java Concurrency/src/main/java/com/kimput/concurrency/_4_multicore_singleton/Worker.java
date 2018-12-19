@@ -1,4 +1,4 @@
-package main.com.kimput.concurrency._4_multicore_singleton;
+package main.java.com.kimput.concurrency._4_multicore_singleton;
 
 import java.util.Timer;
 import java.util.TimerTask;

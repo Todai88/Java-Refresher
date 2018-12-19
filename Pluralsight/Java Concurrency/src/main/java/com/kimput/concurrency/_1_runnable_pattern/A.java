@@ -1,4 +1,4 @@
-package main.com.kimput.concurrency._1_runnable_pattern;
+package main.java.com.kimput.concurrency._1_runnable_pattern;
 
 public class A {
     private Object key1 = new Object();

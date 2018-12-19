@@ -1,4 +1,4 @@
-package main.com.kimput.concurrency._2_wait_notify_pattern;
+package main.java.com.kimput.concurrency._2_wait_notify_pattern;
 
 public class ProducerConsumer {
     private static int[] buffer;

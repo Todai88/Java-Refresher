@@ -1,4 +1,4 @@
-package main.com.kimput.concurrency._3_false_sharing;
+package main.java.com.kimput.concurrency._3_false_sharing;
 
 public class FalseSharing {
     public static int NUM_THREADS_MAX = 4;
