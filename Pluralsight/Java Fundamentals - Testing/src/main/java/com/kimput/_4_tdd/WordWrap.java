@@ -1,4 +1,4 @@
-package main.com.kimput._4_tdd;
+package main.java.com.kimput._4_tdd;
 
 import static java.lang.Math.*;
 

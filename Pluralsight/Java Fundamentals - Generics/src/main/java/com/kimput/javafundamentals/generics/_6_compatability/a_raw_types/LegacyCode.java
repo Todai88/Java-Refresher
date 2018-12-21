@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._6_compatability.a_raw_types;
+package main.java.com.kimput.javafundamentals.generics._6_compatability.a_raw_types;
 
 import java.util.ArrayList;
 import java.util.Iterator;

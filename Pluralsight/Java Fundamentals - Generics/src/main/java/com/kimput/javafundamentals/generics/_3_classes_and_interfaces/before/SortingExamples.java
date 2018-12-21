@@ -1,7 +1,7 @@
-package main.com.kimput.javafundamentals.generics._3_classes_and_interfaces.before;
+package main.java.com.kimput.javafundamentals.generics._3_classes_and_interfaces.before;
 
-import main.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after.AgeComparator;
-import main.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after.ReverseComparator;
+import main.java.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after.AgeComparator;
+import main.java.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after.ReverseComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;

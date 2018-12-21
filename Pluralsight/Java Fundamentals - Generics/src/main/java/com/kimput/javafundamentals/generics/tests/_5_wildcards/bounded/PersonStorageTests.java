@@ -1,10 +1,10 @@
-package main.com.kimput.javafundamentals.generics.tests._5_wildcards.bounded;
+package main.java.com.kimput.javafundamentals.generics.tests._5_wildcards.bounded;
 
-import main.com.kimput.javafundamentals.generics._5_wildcards.bounded.Employee;
-import main.com.kimput.javafundamentals.generics._5_wildcards.bounded.Partner;
-import main.com.kimput.javafundamentals.generics._5_wildcards.bounded.Person;
-import main.com.kimput.javafundamentals.generics._5_wildcards.bounded.PersonLoader;
-import main.com.kimput.javafundamentals.generics._5_wildcards.bounded.PersonSaver;
+import main.java.com.kimput.javafundamentals.generics._5_wildcards.bounded.Employee;
+import main.java.com.kimput.javafundamentals.generics._5_wildcards.bounded.Partner;
+import main.java.com.kimput.javafundamentals.generics._5_wildcards.bounded.Person;
+import main.java.com.kimput.javafundamentals.generics._5_wildcards.bounded.PersonLoader;
+import main.java.com.kimput.javafundamentals.generics._5_wildcards.bounded.PersonSaver;
 import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

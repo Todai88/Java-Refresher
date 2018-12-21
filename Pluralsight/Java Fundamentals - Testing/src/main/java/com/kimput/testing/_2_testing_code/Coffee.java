@@ -1,4 +1,4 @@
-package main.com.kimput.testing._2_testing_code;
+package main.java.com.kimput.testing._2_testing_code;
 
 public final class Coffee {
     private final CoffeeType type;

@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._5_wildcards.bounded;
+package main.java.com.kimput.javafundamentals.generics._5_wildcards.bounded;
 
 public class Partner extends Person {
 

@@ -1,7 +1,7 @@
-package main.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after;
+package main.java.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after;
 
 
-import main.com.kimput.javafundamentals.generics._3_classes_and_interfaces.before.Person;
+import main.java.com.kimput.javafundamentals.generics._3_classes_and_interfaces.before.Person;
 
 import java.util.Comparator;
 

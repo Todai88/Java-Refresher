@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._1_what_and_why_of_generics;
+package main.java.com.kimput.javafundamentals.generics._1_what_and_why_of_generics;
 
 class CircularBuffer<T> {
     private T[] buffer;

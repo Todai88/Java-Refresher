@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._1_what_and_why_of_generics;
+package main.java.com.kimput.javafundamentals.generics._1_what_and_why_of_generics;
 
 /*
     Uses a type-specific (non-generic) CircularBuffer, which will break if anything but strings are used.

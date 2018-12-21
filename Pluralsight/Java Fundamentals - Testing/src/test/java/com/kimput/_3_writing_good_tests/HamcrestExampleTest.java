@@ -1,4 +1,4 @@
-package test.com.kimput._3_writing_good_tests;
+package test.java.com.kimput._3_writing_good_tests;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;

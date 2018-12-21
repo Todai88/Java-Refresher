@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._6_compatability.b_erasure;
+package main.java.com.kimput.javafundamentals.generics._6_compatability.b_erasure;
 
 import java.util.List;
 

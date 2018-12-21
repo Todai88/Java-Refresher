@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after;
+package main.java.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after;
 
 import java.util.Comparator;
 

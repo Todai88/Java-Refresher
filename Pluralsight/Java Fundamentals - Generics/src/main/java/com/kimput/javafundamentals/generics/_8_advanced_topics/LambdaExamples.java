@@ -1,6 +1,6 @@
-package main.com.kimput.javafundamentals.generics._8_advanced_topics;
+package main.java.com.kimput.javafundamentals.generics._8_advanced_topics;
 
-import main.com.kimput.javafundamentals.generics._5_wildcards.bounded.Person;
+import main.java.com.kimput.javafundamentals.generics._5_wildcards.bounded.Person;
 
 import java.util.ArrayList;
 import java.util.List;

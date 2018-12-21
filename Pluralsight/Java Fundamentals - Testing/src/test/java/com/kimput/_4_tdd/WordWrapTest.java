@@ -1,6 +1,6 @@
-package test.com.kimput._4_tdd;
+package test.java.com.kimput._4_tdd;
 
-import main.com.kimput._4_tdd.WordWrap;
+import main.java.com.kimput._4_tdd.WordWrap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

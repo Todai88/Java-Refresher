@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._7_reflection.a_class_literals;
+package main.java.com.kimput.javafundamentals.generics._7_reflection.a_class_literals;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

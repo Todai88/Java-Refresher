@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._7_reflection.b_reflecting_type;
+package main.java.com.kimput.javafundamentals.generics._7_reflection.b_reflecting_type;
 
 import java.util.ArrayList;
 import java.util.List;

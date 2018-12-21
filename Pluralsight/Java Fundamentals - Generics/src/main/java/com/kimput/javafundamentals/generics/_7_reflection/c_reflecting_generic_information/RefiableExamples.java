@@ -1,4 +1,4 @@
-package main.com.kimput.javafundamentals.generics._7_reflection.c_reflecting_generic_information;
+package main.java.com.kimput.javafundamentals.generics._7_reflection.c_reflecting_generic_information;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.TypeVariable;

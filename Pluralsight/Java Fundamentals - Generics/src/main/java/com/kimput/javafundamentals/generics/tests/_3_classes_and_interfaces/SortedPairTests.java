@@ -1,6 +1,6 @@
-package main.com.kimput.javafundamentals.generics.tests._3_classes_and_interfaces;
+package main.java.com.kimput.javafundamentals.generics.tests._3_classes_and_interfaces;
 
-import main.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after.SortedPair;
+import main.java.com.kimput.javafundamentals.generics._3_classes_and_interfaces.after.SortedPair;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
