@@ -5,12 +5,12 @@ import java.time.LocalDate;
 import java.util.Map;
 
 public class SalesReport {
-    private final PrintStream output;
+    private PrintStream output;
     private final SalesAnalysisService analyser;
 
-    public SalesReport(PrintStream out, String fileLocation) {
+    public SalesReport(PrintStream out, SalesAnalysisService analyser) {
         this.output = out;
-        this.analyser = new SalesAnalysisService(fileLocation);
+        this.analyser = analyser;
     }
 
     public void report() {

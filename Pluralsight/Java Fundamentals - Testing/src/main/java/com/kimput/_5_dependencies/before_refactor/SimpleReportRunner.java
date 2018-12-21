@@ -6,8 +6,9 @@ public class SimpleReportRunner {
             System.err.println("You must provide a commandline argument specifying the file to analyse");
             System.exit(-1);
         }
-
-        SalesReport report = new SalesReport(System.out, args[0]);
+        var repo = new CsvSalesRepository(args[0]);
+        final SalesAnalysisService analyser = new SalesAnalysisService(repo);
+        SalesReport report = new SalesReport(System.out, analyser);
         report.report();
     }
 }

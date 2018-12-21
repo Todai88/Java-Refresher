@@ -7,7 +7,7 @@ ISBN-13: 978-0134694726
 
 ----
 
-This repository will try to solve all the exercises in the book.
+This repo will try to solve all the exercises in the book.
 Each subdirectory will outline any learning outcomes.
 
 
