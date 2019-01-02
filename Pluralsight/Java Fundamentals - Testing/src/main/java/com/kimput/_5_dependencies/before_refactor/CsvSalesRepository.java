@@ -2,8 +2,8 @@ package main.java.com.kimput._5_dependencies.before_refactor;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class CsvSalesRepository implements SalesRepository {
     public List<Sale> loadSales() {
         if (sales == null) {
             sales = new ArrayList<>();
-            try (CSVReader reader = new CSVReader(new FileReader(fileLocation))) {
+            try (CSVReader reader = new CSVReader(new InputStreamReader(this.getClass().getResourceAsStream(fileLocation)))) {
                 String[] nextLine;
                 while ((nextLine = reader.readNext()) != null) {
                     String product = nextLine[0].trim();
