@@ -1,10 +1,9 @@
-package main.java.com.kimput.testing._5_dependencies;
+package test.java.com.kimput._5_dependencies;
 
 import main.java.com.kimput._5_dependencies.before_refactor.Sale;
 import main.java.com.kimput._5_dependencies.before_refactor.SalesAnalysisService;
 import main.java.com.kimput._5_dependencies.before_refactor.SalesRepository;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,7 +12,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SalesAnalysisServiceWithMockitoMockTest {
+public class SalesAnalysisServiceWithHandWrittenStubTest {
 
     private static final List<Sale> exampleSales = Arrays.asList(
             new Sale("Apples" , "Cardiff", 10, 2),
@@ -31,16 +30,17 @@ public class SalesAnalysisServiceWithMockitoMockTest {
 
     @Test
     public  void shouldAggregateStoreSales() {
-        // GIVEN
-        var mockRepo = Mockito.mock(SalesRepository.class);
-        Mockito.when(mockRepo.loadSales()).thenReturn(exampleSales);
-        var analysisService = new SalesAnalysisService(mockRepo);
+        SalesRepository stubRepo = new SalesRepository() {
+            @Override
+            public List<Sale> loadSales() {
+                return exampleSales;
+            }
+        };
 
-        // WHEN
+        var analysisService = new SalesAnalysisService(stubRepo);
+
         var storeSales = analysisService.tallyStoreSales();
 
-        // THEN
         assertEquals(expectedStoreSales, storeSales);
-        Mockito.verify(mockRepo).loadSales();
     }
 }

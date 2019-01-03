@@ -1,4 +1,4 @@
-package main.java.com.kimput.testing._4_tdd;
+package main.java.com.kimput._3_testing._4_tdd;
 
 public class LeapYear {
     public static boolean isLeapYear(int year) {

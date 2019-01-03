@@ -1,6 +1,6 @@
 package test.java.com.kimput._4_tdd;
 
-import main.java.com.kimput.testing._4_tdd.LeapYear;
+import main.java.com.kimput._3_testing._4_tdd.LeapYear;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

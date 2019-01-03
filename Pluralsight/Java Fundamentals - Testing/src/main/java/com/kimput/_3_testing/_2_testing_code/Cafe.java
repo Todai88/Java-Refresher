@@ -1,4 +1,4 @@
-package main.java.com.kimput.testing._2_testing_code;
+package main.java.com.kimput._3_testing._2_testing_code;
 
 public final class Cafe {
     private int beansInstock = 0;

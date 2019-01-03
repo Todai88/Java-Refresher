@@ -1,13 +1,13 @@
 package test.java.com.kimput._2_testing_code;
 
-import main.java.com.kimput.testing._2_testing_code.Cafe;
-import main.java.com.kimput.testing._2_testing_code.Coffee;
-import main.java.com.kimput.testing._2_testing_code.CoffeeType;
+import main.java.com.kimput._3_testing._2_testing_code.Cafe;
+import main.java.com.kimput._3_testing._2_testing_code.Coffee;
+import main.java.com.kimput._3_testing._2_testing_code.CoffeeType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static main.java.com.kimput.testing._2_testing_code.CoffeeType.Espresso;
+import static main.java.com.kimput._3_testing._2_testing_code.CoffeeType.Espresso;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasProperty;
