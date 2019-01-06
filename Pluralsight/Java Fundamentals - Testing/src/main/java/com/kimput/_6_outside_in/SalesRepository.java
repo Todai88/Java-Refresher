@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SalesRepository {
-
+    // stupid
     private final String fileLocation;
     private List<Sale> sales;
 
