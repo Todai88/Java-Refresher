@@ -53,6 +53,7 @@ public class OrderEntityToOrderSummaryTransformerTest {
     @Test(expected=IllegalArgumentException.class)
     public void givenNullInput_whenTestingTransform_shouldBeUnsuccessful() {
         target.transform(null);
+
     }
 
     @Test
