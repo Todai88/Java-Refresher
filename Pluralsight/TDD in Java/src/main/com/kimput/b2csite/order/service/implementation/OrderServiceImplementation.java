@@ -35,13 +35,12 @@ public class OrderServiceImplementation implements OrderService {
                     .findOrdersByCustomer(customerId);
             for (OrderEntity currentEntity : orderEntityList) {
                 var orderSummary = this.transformer
-                        .tranform(currentEntity);
+                        .transform(currentEntity);
                 resultList.add(orderSummary);
             }
         } catch  (DataAccessException e ) {
             throw new ServiceException("Data access error occurred", e);
         }
-
         return resultList;
     }
 

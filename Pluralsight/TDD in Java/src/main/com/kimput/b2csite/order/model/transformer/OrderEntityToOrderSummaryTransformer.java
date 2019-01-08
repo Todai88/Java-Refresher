@@ -27,8 +27,4 @@ public class OrderEntityToOrderSummaryTransformer {
         orderSummaryResult.setTotalAmount(totalAmount);
         return orderSummaryResult;
     }
-
-    public OrderSummary tranform(OrderEntity currentEntity) {
-        return null;
-    }
 }
