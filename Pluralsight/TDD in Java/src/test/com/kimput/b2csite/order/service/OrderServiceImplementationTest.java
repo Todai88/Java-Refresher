@@ -15,8 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class OrderServiceImplementationTest {
 
@@ -50,6 +49,10 @@ public class OrderServiceImplementationTest {
 
         // WHEN
         var actual = serviceImplementation.getOrderSummary(CUSTOMER_ID);
+
+        // VERIFICATION
+        verify(mockOrderDao).findOrdersByCustomer(CUSTOMER_ID);
+        verify(mockTransformer).transform(entityFixture);
 
         // THEN
         assertNotNull(actual);
