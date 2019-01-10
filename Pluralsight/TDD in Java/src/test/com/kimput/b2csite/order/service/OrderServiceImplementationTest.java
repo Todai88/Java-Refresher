@@ -1,5 +1,6 @@
 package test.com.kimput.b2csite.order.service;
 
+import main.com.kimput.b2csite.common.DataAccessException;
 import main.com.kimput.b2csite.order.dao.OrderDao;
 import main.com.kimput.b2csite.order.model.domain.OrderSummary;
 import main.com.kimput.b2csite.order.model.entity.OrderEntity;
@@ -58,5 +59,20 @@ public class OrderServiceImplementationTest {
         assertNotNull(actual);
         assertThat(1, is(actual.size()));
         assertThat(orderSummaryFixture, sameInstance(actual.get(0)));
+    }
+
+    @Test
+    public void givenACustomerId_whenTestingOpenNewOrder_ThenShouldReturnSuccessfulOrderNumber() throws Exception{
+        // GIVEN
+        when(mockOrderDao.insert(any(OrderEntity.class)))
+                .thenThrow(new DataAccessException("First Ex")).thenReturn(1);
+
+        // WHEN
+        this.serviceImplementation.openNewOrder(CUSTOMER_ID);
+
+        // THEN
+
+        // VERIFY
+        verify(mockOrderDao, times(2)).insert(any(OrderEntity.class));
     }
 }
