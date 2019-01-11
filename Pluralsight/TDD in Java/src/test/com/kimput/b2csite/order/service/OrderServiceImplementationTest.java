@@ -8,6 +8,8 @@ import main.com.kimput.b2csite.order.model.transformer.OrderEntityToOrderSummary
 import main.com.kimput.b2csite.order.service.implementation.OrderServiceImplementation;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -20,15 +22,19 @@ import static org.mockito.Mockito.*;
 
 public class OrderServiceImplementationTest {
 
-    private OrderServiceImplementation serviceImplementation;
     private final static int CUSTOMER_ID = 1;
-    private OrderDao mockOrderDao;
-    private OrderEntityToOrderSummaryTransformer mockTransformer;
+
+    private OrderServiceImplementation serviceImplementation;
+    private @Mock OrderDao mockOrderDao;
+    private @Mock OrderEntityToOrderSummaryTransformer mockTransformer;
+
     @Before
     public void init() {
-            serviceImplementation = new OrderServiceImplementation();
-            mockOrderDao = mock(OrderDao.class);
-            mockTransformer = mock(OrderEntityToOrderSummaryTransformer.class);
+            MockitoAnnotations.initMocks(this);
+
+            this.serviceImplementation = new OrderServiceImplementation();
+            this.serviceImplementation.setOrderDao(mockOrderDao);
+            this.serviceImplementation.setTransformer(mockTransformer);
     }
 
     @Test
