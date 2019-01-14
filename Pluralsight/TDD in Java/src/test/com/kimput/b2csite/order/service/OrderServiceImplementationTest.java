@@ -1,6 +1,7 @@
 package test.com.kimput.b2csite.order.service;
 
 import main.com.kimput.b2csite.common.DataAccessException;
+import main.com.kimput.b2csite.common.ServiceException;
 import main.com.kimput.b2csite.order.dao.OrderDao;
 import main.com.kimput.b2csite.order.model.domain.OrderSummary;
 import main.com.kimput.b2csite.order.model.entity.OrderEntity;
@@ -71,7 +72,7 @@ public class OrderServiceImplementationTest {
     public void givenACustomerId_whenTestingOpenNewOrder_ThenShouldReturnSuccessfulOrderNumber() throws Exception{
         // GIVEN
         when(mockOrderDao.insert(any(OrderEntity.class)))
-                .thenThrow(new DataAccessException("First Ex")).thenReturn(1);
+            .thenThrow(new DataAccessException("First Ex")).thenReturn(1);
 
         // WHEN
         this.serviceImplementation.openNewOrder(CUSTOMER_ID);
@@ -80,5 +81,22 @@ public class OrderServiceImplementationTest {
 
         // VERIFY
         verify(mockOrderDao, times(2)).insert(any(OrderEntity.class));
+    }
+
+    @Test(expected= ServiceException.class)
+    public void givenACustomerId_whenTestingOpenNewOrder_thenVerifyInsertCalledTwice() throws Exception{
+        // GIVEN
+        when(mockOrderDao.insert(any(OrderEntity.class)))
+                .thenThrow(new DataAccessException("First Ex"))
+                .thenThrow(new DataAccessException("Second Ex"));
+
+        // WHEN
+        try {
+            this.serviceImplementation.openNewOrder(CUSTOMER_ID);
+        } finally {
+            // VERIFY
+            verify(mockOrderDao, times(2))
+                    .insert(any(OrderEntity.class));
+        }
     }
 }

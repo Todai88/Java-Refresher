@@ -16,7 +16,7 @@ public class OrderServiceImplementation implements OrderService {
 
     private OrderDao orderDao = null;
     private OrderEntityToOrderSummaryTransformer transformer = null;
-    private final int MAX_INSERT_ATTEMPT = 10;
+    private final int MAX_INSERT_ATTEMPT = 2;
 
     public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
