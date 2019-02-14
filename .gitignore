@@ -1,4 +1,4 @@
 .idea
 *.imi
-DropWizard/exampledw/configuration.yaml
+**/configuration.yaml
 out/
