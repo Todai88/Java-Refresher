@@ -1,4 +1,4 @@
 database:
   driverClass: org.postgresql.Driver
   user: power_user
-  password: tester
+  password: xxx
