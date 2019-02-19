@@ -3,11 +3,19 @@ package main.com.kimput.b2csite.order.service.implementation;
 import main.com.kimput.b2csite.common.DataAccessException;
 import main.com.kimput.b2csite.common.ServiceException;
 import main.com.kimput.b2csite.order.dao.OrderDao;
+import main.com.kimput.b2csite.order.integration.WarehouseManagementService;
+import main.com.kimput.b2csite.order.model.domain.OrderCompletionAudit;
 import main.com.kimput.b2csite.order.model.domain.OrderSummary;
 import main.com.kimput.b2csite.order.model.entity.OrderEntity;
+import main.com.kimput.b2csite.order.model.entity.OrderItemEntity;
+import main.com.kimput.b2csite.order.model.message.ItemMessage;
+import main.com.kimput.b2csite.order.model.message.OrderMessage;
 import main.com.kimput.b2csite.order.model.transformer.OrderEntityToOrderSummaryTransformer;
 import main.com.kimput.b2csite.order.service.OrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -17,6 +25,7 @@ public class OrderServiceImplementation implements OrderService {
     private OrderDao orderDao = null;
     private OrderEntityToOrderSummaryTransformer transformer = null;
     private final int MAX_INSERT_ATTEMPT = 2;
+    private final static Logger AUDIT_LOGGER = LoggerFactory.getLogger("AUDIT");
 
     public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
@@ -71,6 +80,39 @@ public class OrderServiceImplementation implements OrderService {
             throw new ServiceException("Data access error prevented creation of order");
         }
         return newOrderEntity.getOrderNumber();
+    }
+
+    public void completeOrder(long orderId) throws ServiceException {
+
+        try {
+            OrderEntity orderEntity = orderDao.findById(orderId);
+
+            OrderMessage orderMessage = new OrderMessage();
+            orderMessage.setOrderNumber(orderEntity.getOrderNumber());
+            orderMessage.setItems(new LinkedList<ItemMessage>());
+
+            for (OrderItemEntity currentItemEntity : orderEntity.getOrderItemList()) {
+
+                ItemMessage itemMessage = new ItemMessage();
+                itemMessage.setItemNumber(currentItemEntity.getSku());
+                itemMessage.setQuantity(currentItemEntity.getQuantity());
+
+                orderMessage.getItems().add(itemMessage);
+            }
+
+            WarehouseManagementService.sendOrder(orderMessage);
+
+            Date completionDate = new Date();
+            OrderCompletionAudit auditRecord = new OrderCompletionAudit();
+            auditRecord.setOrderNumber(orderEntity.getOrderNumber());
+            auditRecord.setCompletionDate(completionDate);
+
+            AUDIT_LOGGER.info(String.format("Order completed - %1$s", auditRecord));
+
+        } catch (DataAccessException e) {
+            // Log error
+            throw new ServiceException("Data access error while completing order", e);
+        }
     }
 
 }

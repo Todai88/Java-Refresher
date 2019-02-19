@@ -7,8 +7,10 @@ import main.com.kimput.b2csite.order.model.domain.OrderSummary;
 import main.com.kimput.b2csite.order.model.entity.OrderEntity;
 import main.com.kimput.b2csite.order.model.transformer.OrderEntityToOrderSummaryTransformer;
 import main.com.kimput.b2csite.order.service.implementation.OrderServiceImplementation;
+import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -16,14 +18,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 public class OrderServiceImplementationTest {
 
-    private final static int CUSTOMER_ID = 1;
+    private final static long CUSTOMER_ID = 1;
 
     private OrderServiceImplementation serviceImplementation;
     private @Mock OrderDao mockOrderDao;
@@ -84,7 +86,7 @@ public class OrderServiceImplementationTest {
     }
 
     @Test(expected= ServiceException.class)
-    public void givenACustomerId_whenTestingOpenNewOrder_thenVerifyInsertCalledTwice() throws Exception{
+    public void givenACustomerId_whenTestingOpenNewOrder_thenVerifyCalledTwiceAndReturnsExceptions () throws Exception{
         // GIVEN
         when(mockOrderDao.insert(any(OrderEntity.class)))
                 .thenThrow(new DataAccessException("First Ex"))
@@ -98,5 +100,33 @@ public class OrderServiceImplementationTest {
             verify(mockOrderDao, times(2))
                     .insert(any(OrderEntity.class));
         }
+    }
+
+    @Test
+    public void givenACustomerId_whenTestingOpenNewOrder_thenAssertThatEntityIsNotNullAndFieldsAreCorrect() throws Exception {
+        // SETUP
+        when(mockOrderDao.insert(any(OrderEntity.class)))
+                .thenReturn(1);
+
+        // WHEN
+        var orderNumber = this.serviceImplementation.openNewOrder(CUSTOMER_ID);
+
+        // VERIFICATION
+        var orderEntityCaptor = ArgumentCaptor.forClass(OrderEntity.class);
+        verify(mockOrderDao).insert(orderEntityCaptor.capture());
+        var capturedOrderEntity = orderEntityCaptor.getValue();
+
+        // THEN
+        assertNotNull(capturedOrderEntity);
+        assertThat(CUSTOMER_ID, is(capturedOrderEntity.getCustomerId()));
+        assertEquals(orderNumber, capturedOrderEntity.getOrderNumber());
+    }
+
+    public static Matcher<Long> is(long value) {
+        return org.hamcrest.core.Is.is(Long.valueOf(value));
+    }
+
+    public static Matcher<Integer> is(int value) {
+        return is(Integer.valueOf(value));
     }
 }
